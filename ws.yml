@@ -18,18 +18,25 @@ ws:
 services:
   get_all_user:
     input:
-      password: string
-      start: int
-      limit: int
-      is_compressed: int
+      password: 
+        type: string
+        info: Password webservice
+      start: 
+        type: int
+        info: indeks awal data yg akan diambil ( dimulai dari 1 )
+      limit: 
+        type: int
+        info: jumlah data yg akan diambil ( maksimal sebanyak data yang tersedia )
+      is_compressed: 
+        type: int
+        info: 1=true, 0=false ( data yang dikirim apakah dalam bentuk terkompresi atau tidak )
     type: multirow
     desc: Get Data User
-    desc_func: main_desc
     fields:
       username
       password
     test:
-      start: 0
+      start: 1
       limit: 10
       is_compressed: 0
     sql: |
@@ -38,11 +45,14 @@ services:
       LIMIT [start],[limit]
   count_all_user: 
     input:
-      password: string
-      is_compressed: int
+      password: 
+        type: string
+        info: Password webservice
+      is_compressed: 
+        type: int
+        info: 1=true, 0=false ( data yang dikirim apakah dalam bentuk terkompresi atau tidak )
     type: singledata
     desc: Get Jumlah User
-    desc_func: main_desc_count
     fields: 
       jumlah
     sql: |
@@ -50,12 +60,17 @@ services:
       FROM   user
   get_user_by_username:
     input:
-      password: string
-      username: string
-      is_compressed: int
+      password: 
+        type: string
+        info: Password webservice
+      username: 
+        type: string
+        info: username sebagai kunci pencarian
+      is_compressed: 
+        type: int
+        info: 1=true, 0=false ( data yang dikirim apakah dalam bentuk terkompresi atau tidak )
     type: singlerow
     desc: Get Data User
-    desc_func: main_desc
     fields:
       username
       password
