@@ -86,7 +86,7 @@ class ratno_ws {
     // ambil input
     $input = array();
     $i = 0;
-    foreach ($this->services[$method]['input'] as $input_name => $input_type) {
+    foreach ($this->services[$method]['input'] as $input_name => $input_opt) {
       $input[$input_name] = $data[$i++];
     }
 
