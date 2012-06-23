@@ -1,0 +1,1 @@
+<?php class trial_ws extends ratno_ws {public function get_all_user(){return $this->process(__METHOD__, func_get_args());}public function count_all_user(){return $this->process(__METHOD__, func_get_args());}public function get_user_by_username(){return $this->process(__METHOD__, func_get_args());}}
