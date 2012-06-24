@@ -17,6 +17,7 @@ ws:
   
 services:
   get_all_user:
+    password: password spesifik service
     input:
       password: 
         type: string
@@ -36,6 +37,7 @@ services:
       username
       password
     test:
+      password: password spesifik service
       start: 1
       limit: 10
       is_compressed: 0

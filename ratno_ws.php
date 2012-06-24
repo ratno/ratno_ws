@@ -47,13 +47,23 @@ class ratno_ws {
     }
   }
 
-  protected function auth($password) {
-    if ($password != $this->ws['password']) {
-      $this->return['err_no'] = -1;
-      $this->return['err_teks'] = 'Anda tidak berhak mengakses webservice ini!';
-      return false;
+  protected function auth($password,$method) {
+    if (key_exists("password", $this->services[$method])) {
+      if($password == $this->services[$method]['password']){
+        return true;
+      } else {
+        $this->return['err_no'] = -1;
+        $this->return['err_teks'] = 'Anda tidak berhak mengakses webservice ini!';
+        return false;
+      }
     } else {
-      return true;
+      if($password == $this->ws['password']){
+        return true;
+      } else {
+        $this->return['err_no'] = -1;
+        $this->return['err_teks'] = 'Anda tidak berhak mengakses webservice ini!';
+        return false;
+      }
     }
   }
 
@@ -84,7 +94,7 @@ class ratno_ws {
     if ($this->return['err_no'] == -2)
       return $this->ws_data();
 
-    if (!$this->auth($input['password']))
+    if (!$this->auth($input['password'],$method))
       return $this->ws_data();
     
     unset($input['password']);
