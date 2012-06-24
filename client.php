@@ -10,7 +10,7 @@ include_once 'func.php';
 $call_method = (key_exists("m", $_GET) && isset($_GET['m'])) ? $_GET['m'] : null;
 $yml = Spyc::YAMLLoad("ws.yml");
 if (is_null($call_method)) {
-  echo "<h1>Services Available:</h1>";
+  echo "<h1>Services Available [<a href='data_dict.php'>Lihat Data Dictionary</a>]:</h1>";
   echo "<ul>";
   foreach ($yml['services'] as $service_name => $service) {
     echo "<li><a href='client.php?m=$service_name'>$service_name</a></li>";
