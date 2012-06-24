@@ -6,13 +6,13 @@ $yml = Spyc::YAMLLoad("ws.yml");
 ?>
 <html>
   <head>
-    <title>Data Dictionary for <?php $yml['ws']['unit'] ?></title>
+    <title>Data Dictionary for <?php echo $yml['ws']['unit'] ?></title>
   </head>
   <body>
-    
+    <h1>Data Dictionary for <?php echo $yml['ws']['unit'] ?><h1>
     <?php
     foreach ($yml['services'] as $service_name => $service) {
-      echo "<h1>$service_name:</h1>";
+      echo "<h2>$service_name:</h2>";
       echo "<h3>Description: </h3>";
       echo "<p>".$service['desc']."</p>";
       echo "<h3>wsdl: </h3>";
