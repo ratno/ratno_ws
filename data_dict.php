@@ -13,8 +13,11 @@ $yml = Spyc::YAMLLoad("ws.yml");
     <?php
     foreach ($yml['services'] as $service_name => $service) {
       echo "<h1>$service_name:</h1>";
-      echo "<b>".$service['desc']."</b>";
-      echo "<h2>Parameter Input Service:</h2>";
+      echo "<h3>Description: </h3>";
+      echo "<p>".$service['desc']."</p>";
+      echo "<h3>wsdl: </h3>";
+      echo "<p>".$yml['ws']['ns']."?wsdl</p>";
+      echo "<h3>Parameter Input Service:</h3>";
       echo "<table border=1 cellpadding=5 cellspacing=0>";
       echo "<tr>";
       echo "<th>Parameter Input</th>";
@@ -30,12 +33,14 @@ $yml = Spyc::YAMLLoad("ws.yml");
       }
       echo "</table>";
       
-      echo "<h2>Output Fields:</h2>";
+      echo "<h3>Output Fields:</h3>";
       echo "<ul>";
       foreach($service['fields'] as $field){
         echo "<li>$field</li>";
       }
       echo "</ul>";
+      echo "<h3>Client Test:</h3>";
+      echo "<a href='client.php?m=$service_name'>$service_name</a>";
       echo "<hr />";
     }
     ?>
