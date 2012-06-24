@@ -4,7 +4,7 @@ config:
   username: ratno
   password: ratno
   database: trial
-  oraclesid: true
+  oraclesid: false
 
 #ws.zip_data adalah default compress result, namun bisa dioverride by ws request  
 ws:
