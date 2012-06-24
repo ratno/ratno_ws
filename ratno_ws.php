@@ -65,21 +65,6 @@ class ratno_ws {
     }
   }
 
-  protected function wrap_sql($sql, $dari, $sebanyak) {
-    $akhir = $dari + $sebanyak;
-    if (in_array($this->config['driver'], array("oracle", "oci8"))) {
-      $sql = "SELECT * FROM ({$sql}) WHERE R BETWEEN $dari AND $akhir";
-    } else {
-      $sql = "SELECT * FROM ({$sql}) LIMIT $dari,$sebanyak";
-    }
-    return $sql;
-  }
-  
-  protected function prep_sql($method,$data){
-    
-    
-  }
-
   protected function process($method, $data) {
     $this->connect();
     $method = str_replace($this->ws['class'] . "::", "", $method);
@@ -118,6 +103,11 @@ class ratno_ws {
     }
     
     $sql = str_replace($search, $replace, $this->services[$method]['sql']);
+    
+    if(key_exists("debug_sql", $input) && $input['debug_sql']){
+      return $sql;
+    }
+    
     $this->conn->SetFetchMode(ADODB_FETCH_NUM);
     $rs = $this->conn->Execute($sql);
 
