@@ -1,0 +1,8 @@
+<FilesMatch "\.(htaccess|yml|txt)$">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+<FilesMatch "generated_ws.php">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
