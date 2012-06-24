@@ -6,9 +6,10 @@
 include_once 'spyc.php';
 include_once 'nusoap/nusoap.php';
 include_once 'func.php';
-
+auth();
 $call_method = (key_exists("m", $_GET) && isset($_GET['m'])) ? $_GET['m'] : null;
 $yml = Spyc::YAMLLoad("ws.yml");
+echo "[<a href='auth.php'>home</a>]";
 if (is_null($call_method)) {
   echo "<h1>Services Available [<a href='data_dict.php'>Lihat Data Dictionary</a>]:</h1>";
   echo "<ul>";

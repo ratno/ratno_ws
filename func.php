@@ -19,3 +19,13 @@ function nbsp($num){
   for($i=0;$i<$num;$i++) $out .= "&nbsp;";
   return $out;
 }
+
+function auth(){
+  if($_SESSION['auth_pass'] == "ratno_ws_auth_pass_#!@") {
+    // go ahead
+  } else {
+    header("location: auth.php");
+  }
+}
+
+session_start();

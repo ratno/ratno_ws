@@ -1,7 +1,7 @@
 <?php
 include_once 'spyc.php';
 include_once 'func.php';
-
+auth();
 $yml = Spyc::YAMLLoad("ws.yml");
 ?>
 <html>
@@ -9,6 +9,7 @@ $yml = Spyc::YAMLLoad("ws.yml");
     <title>Data Dictionary for <?php echo $yml['ws']['unit'] ?></title>
   </head>
   <body>
+    [<a href='auth.php'>home</a>]
     <h1>Data Dictionary for <?php echo $yml['ws']['unit'] ?><h1>
     <?php
     foreach ($yml['services'] as $service_name => $service) {
