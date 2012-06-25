@@ -41,3 +41,17 @@ Struktur ws.yml terdiri atas tiga bagian utama:
 * `class`, nama class yg akan di-generate (contoh: unit_ws)
 * `ns`, link ke halaman service (contoh: http://localhost/soap/ratno_ws/index.php)
 * `zip_data`, setting apakah data yang dikirim akan di zip/compress, default false, namun bisa dioverride per-request by client
+
+#### services
+susunannya seperti berikut:
+
+        `nama_service:`
+          `password:` *gunakan jika ada password khusus untuk service ini*
+          `input:` *menyimpan inputan yang akan diterima oleh service ini*
+            `password:` *input untuk service, dalam hal ini password webservice*
+              `type: string` *type input (string/int), misal: string*
+              `info: password` webservice *informasi terkait input*
+            `nip:` *input untuk service, dalam hal ini nip (nomor induk pegawai)*
+              `type: string` *type input, misal: string*
+              `info: nip pegawai` *informasi terkait input*
+
