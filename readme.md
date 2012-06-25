@@ -43,15 +43,29 @@ Struktur ws.yml terdiri atas tiga bagian utama:
 * `zip_data`, setting apakah data yang dikirim akan di zip/compress, default false, namun bisa dioverride per-request by client
 
 #### services
-susunannya seperti berikut:
+susunannya seperti berikut: semua yang ada dalam kurung < dan > adalah komentar
 
-        nama_service:
-          password: [gunakan jika ada password khusus untuk service ini]
-          input: [menyimpan inputan yang akan diterima oleh service ini]
-            password: [input untuk service, dalam hal ini password webservice]
-              type: string [tipe inputan (string/int)]
-              info: password webservice [informasi terkait input]
-            nip: [input untuk service, dalam hal ini nip (nomor induk pegawai)]
-              type: string [tipe inputan]
-              info: nip pegawai [informasi terkait input]
+        get_data_by_nip: <nama service yang akan diberikan>
+          password: <gunakan jika ada password khusus untuk service ini>
+          input: <menyimpan inputan yang akan diterima oleh service ini>
+            password: <input untuk service, dalam hal ini password webservice>
+              type: string <tipe inputan (string/int)>
+              info: password webservice <informasi terkait input>
+            nip: <input untuk service, dalam hal ini nip (nomor induk pegawai)>
+              type: string <tipe inputan>
+              info: nip pegawai <informasi terkait input>
+          type: multirow <tipe output: multirow, singlerow, singledata(hanya satu data seperti pada count(*)>
+          desc: Get Data User berdasarkan NIP <deskripsi service yang diberikan>
+          fields: <kolom keluaran dari service (per baris data), untuk single data fields hanya akan terisi satu>
+            nip
+            nama
+            alamat
+            hp
+          test: <data untuk test client, data ini digunakan sebagai parameter input service>
+            password: r4has1a
+            nip: 12345678
+          sql: |
+            SELECT nip, nama, alamat, hp
+            FROM user
+            WHERE nip=[nip] <inputan dapat dimasukkan dalam query menggunakan kurung siku []>
 
