@@ -7,8 +7,10 @@ Instalasi
 1. [Download](https://github.com/ratno/ratno_ws/zipball/master)
 2. Ekstrak
 3. Set write permission pada `md5.txt` dan `generated_ws.php`
+
     $ chmod 777 md5.txt
     $ chmod 777 generated_ws.php
+
 4. Edit `ws.yml`, dan voila... webservice anda sudah siap
 5. Buka `http://localhost/folder_ws_anda/index.php` untuk mengakses webservice point 
 6. Buka `http://localhost/folder_ws_anda/client.php` untuk melihat halaman test client (terproteksi password webservice)
@@ -17,6 +19,7 @@ Instalasi
 Panduan ws.yml
 --------------
 Struktur ws.yml terdiri atas tiga bagian utama:
+
 1. config, menyimpan semua konfigurasi sistem terkait dengan koneksi ke database yang nantinya diimplement oleh adodb
 2. ws, menyimpan semua konfigurasi umum webservice
 3. services, menyimpan konfigurasi service yang akan disediakan 
