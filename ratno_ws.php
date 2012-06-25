@@ -128,19 +128,19 @@ class ratno_ws {
       return $this->ws_data();
     } else {
       if ($this->services[$method]['type'] == 'singledata') {
-        $this->return['data'] = $rs->fields[0];
         $this->return['fields'] = $this->services[$method]['fields'][0];
+        $this->return['data'] = $rs->fields[0];
       } elseif ($this->services[$method]['type'] == 'singlerow') {
-        $this->return['data'] = $rs->fields;
         $this->return['fields'] = $this->services[$method]['fields'];
+        $this->return['data'] = $rs->fields;
       } else {
         $ret = array();
         while (!$rs->EOF) {
           $ret[] = $rs->fields;
           $rs->MoveNext();
         }
-        $this->return['data'] = $ret;
         $this->return['fields'] = $this->services[$method]['fields'];
+        $this->return['data'] = $ret;
       }
       
     }
