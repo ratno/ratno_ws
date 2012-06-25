@@ -48,10 +48,10 @@ susunannya seperti berikut: semua yang ada dalam kurung < dan > adalah komentar
         get_data_by_nip: <nama service yang akan diberikan>
           password: <gunakan jika ada password khusus untuk service ini>
           input: <menyimpan inputan yang akan diterima oleh service ini>
-            password: <input untuk service, dalam hal ini password webservice>
+            password: <nama input untuk service, dalam hal ini password webservice>
               type: string <tipe inputan (string/int)>
               info: password webservice <informasi terkait input>
-            nip: <input untuk service, dalam hal ini nip (nomor induk pegawai)>
+            nip: <nama input untuk service, dalam hal ini nip (nomor induk pegawai)>
               type: string <tipe inputan>
               info: nip pegawai <informasi terkait input>
           type: multirow <tipe output: multirow, singlerow, singledata(hanya satu data seperti pada count(*)>
